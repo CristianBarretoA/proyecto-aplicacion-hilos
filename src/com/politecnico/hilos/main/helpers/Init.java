@@ -8,6 +8,11 @@ import java.util.concurrent.TimeUnit;
 
 public class Init extends Process {
 
+    /**
+     *
+     * @param executionTime
+     * @param runningTime
+     */
     public Init(int[] executionTime, int[] runningTime) {
         this.executionTimes = new long[]{
                 generateTime(executionTime[0], MINUTES),
@@ -21,12 +26,13 @@ public class Init extends Process {
         };
     }
 
-    public void run() {
-        Thread hilo = new Thread(this.executionTimes[0], this.runningTimes[0]);
-        Thread hilo2 = new Thread(this.executionTimes[1], this.runningTimes[1]);
-        Thread hilo3 = new Thread(this.executionTimes[2], this.runningTimes[2]);
-    }
-
+    /**
+     *  Get the type MINUTES or SECONDS and returns
+     *
+     * @param time
+     * @param type
+     * @return
+     */
     private long generateTime(int time, String type) {
         if (MINUTES.equals(type)) {
             return TimeUnit.MINUTES.toMillis(this.random.nextInt(time));

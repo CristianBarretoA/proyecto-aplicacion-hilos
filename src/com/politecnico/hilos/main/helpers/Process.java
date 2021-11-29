@@ -9,10 +9,8 @@ public class Process {
     public final String SECONDS = "S";
     public final String MINUTES = "M";
 
-    List<String> logger;
-
-    long[] executionTimes = {};
-    long[] runningTimes = {};
+    long[] executionTimes = {1,1,1};
+    long[] runningTimes = {1,1,1};
 
     public long[] getExecutionTimes() {
         return executionTimes;
@@ -20,14 +18,6 @@ public class Process {
 
     public long[] getRunningTimes() {
         return runningTimes;
-    }
-
-    public List<String> getLogger() {
-        return logger;
-    }
-
-    public void log(String message) {
-        logger.add(message);
     }
 
 }

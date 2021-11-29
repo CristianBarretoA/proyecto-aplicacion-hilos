@@ -2,6 +2,7 @@ package com.politecnico.hilos;
 
 import com.politecnico.hilos.main.helpers.Init;
 import com.politecnico.hilos.main.helpers.Process;
+import com.politecnico.hilos.main.helpers.Runner;
 import com.politecnico.hilos.main.threads.Thread;
 
 import java.util.Arrays;
@@ -12,8 +13,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner reader = new Scanner(System.in);
-
         // write your code here
         System.out.println("A continuación se ejecutaran 3 tareas ciclicas en diferentes hilos, duración de total 6 min.");
         //Parametrize the execution time, minutes
@@ -21,12 +20,14 @@ public class Main {
         //Parametrize the running time for each loop of the task, seconds
         int[] runningTimes = {5, 12, 2};
 
-        //Thread hilo = new Thread(1);
-        Process process = new Init(executionTimes, runningTimes);
+        //Inits process
+        /*Thread hilo = new Thread(2,1000);
+        hilo.start();*/
 
-        Arrays.stream(process.getExecutionTimes()).forEach(executionTime -> {
-            Thread hilo = new Thread(executionTime, process.getRunningTimes()[new Random().nextInt(2)]);
-        });
+        //TODO: Add the task execution process
+        Init process = new Init(executionTimes, runningTimes);
+        Runner runner = new Runner(process);
+        runner.runThreads();
 
     }
 
